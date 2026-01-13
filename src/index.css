@@ -1,0 +1,190 @@
+/* Theme variables */
+:root{
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-600: #1e63d6;
+  --glass: rgba(255,255,255,0.6);
+  --gap: 24px;
+  --radius: 10px;
+  --shadow-1: 0 6px 18px rgba(15,23,42,0.06);
+  --shadow-2: 0 12px 30px rgba(15,23,42,0.09);
+}
+
+
+body {
+  font-family: Karla, Arial, sans-serif;
+  background-color: var(--bg);
+  color: #0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size:16px;
+  line-height:1.45;
+}
+
+.header{
+  background: linear-gradient(90deg, rgba(37,99,235,0.10), rgba(37,99,235,0.03));
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+}
+
+.header-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{ display:flex; align-items:center; gap:12px }
+.logo{ font-size:24px }
+.titles{ line-height:1 }
+.title-main{ font-weight:700; font-size:20px; letter-spacing:0.2px }
+.title-sub{ font-size:13px; color:var(--muted); margin-top:2px }
+.view-link{ color:var(--accent); text-decoration:none; font-weight:600 }
+
+/* Layout container */
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+.meme-generator {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+.meme-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.text-input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(15,23,42,0.06);
+  min-width: 180px;
+  background: var(--card);
+}
+
+.button {
+  padding: 10px 14px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-600));
+  background-size: 200% 100%;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.14);
+  transition: transform .12s ease, box-shadow .12s ease, background-position .45s ease, filter .12s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.02);
+  background-position: 100% 0;
+  box-shadow: 0 14px 28px rgba(37,99,235,0.18);
+  filter: brightness(1.03);
+}
+
+.button:active {
+  transform: translateY(0) scale(.99);
+  box-shadow: 0 6px 14px rgba(37,99,235,0.12);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(37,99,235,0.10);
+}
+
+.preview {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.meme-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+}
+
+.meme-placeholder {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  color: var(--muted);
+  border-radius: var(--radius);
+}
+
+.recently-submitted { margin-top: 8px; }
+
+/* Grid of meme cards: fixed thumbnail size, uniform cards */
+.meme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap);
+  margin-top: 20px;
+}
+
+.meme-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms;
+}
+
+.meme-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-2); }
+
+.meme-thumb {
+  width: 100%;
+  height: 200px; /* fixed height for uniform size */
+  object-fit: cover; /* center crop */
+  display: block;
+}
+
+.caption {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #111827;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Preview with overlayed top/bottom text */
+.meme-preview{ position:relative; display:inline-block; max-width:720px; width:100%; }
+.meme-overlay{ position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; pointer-events:none; padding:12px }
+.overlay-line{ font-weight:700; color:white; text-shadow: 0 2px 6px rgba(0,0,0,0.6); font-size: clamp(16px, 3.2vw, 36px); text-align:center; letter-spacing:1px }
+.overlay-line.top{ align-self:stretch }
+.overlay-line.bottom{ align-self:stretch }
+
+.preview-actions{ display:flex; gap:8px; justify-content:center; margin-top:10px }
+.button.secondary{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  color: var(--accent);
+  border: 1px solid rgba(37,99,235,0.14);
+  box-shadow: none;
+}
+
+.button.secondary:hover{
+  background: linear-gradient(90deg, rgba(37,99,235,0.04), rgba(37,99,235,0.02));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.06);
+}
+
+/* Mobile styles removed — desktop-only layout preferred */
