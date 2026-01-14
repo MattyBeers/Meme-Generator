@@ -49,8 +49,6 @@ The screenshot below shows the app. A short animated demo is included (`demo.gif
 
 ![screenshot](memeGenSc.png)
 
-![demo](demo.gif)
-
 ## Deploy to Render (Static Site)
 
 1. Push your repo to GitHub.
