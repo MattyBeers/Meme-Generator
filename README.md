@@ -37,11 +37,19 @@ Preview production build locally:
 npm run preview
 ```
 
-## Screenshot
+## Live Demo & Status
 
-Add a `screenshot.png` to the repository root to show a demo screenshot in this README. Example file path: `./screenshot.png`.
+- Live demo: https://meme-generator-w4xa.onrender.com/
 
-![screenshot](screenshot.png)
+- CI build: ![CI badge](https://github.com/MattyBeers/Meme-Generator/actions/workflows/ci.yml/badge.svg)
+
+## Screenshot / Demo
+
+The screenshot below shows the app. A short animated demo is included (`demo.gif`). Replace `REPLACE_WITH_RENDER_URL` above with your Render site URL.
+
+![screenshot](memeGenSc.png)
+
+![demo](demo.gif)
 
 ## Deploy to Render (Static Site)
 
