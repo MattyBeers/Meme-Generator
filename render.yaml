@@ -1,0 +1,7 @@
+services:
+  - type: "static_site"
+    name: "meme-generator"
+    env: "node"
+    branch: "main"
+    buildCommand: "npm run build"
+    staticPublishPath: "dist"
